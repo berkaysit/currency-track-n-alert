@@ -9,12 +9,12 @@ for row in csv.reader(open("pass.csv","rt", encoding='UTF-8')):
         mailDetails.append(row)
 
 def sendMail(pBank, pDovSatis, pBaseMoney, pPresentMoneyTL):
-    print(mailDetails[0][1])
-    print(mailDetails[1][1])
-    print(mailDetails[2][1])
-    print(mailDetails[3][1])
-    print(mailDetails[4][1])
-    print(mailDetails[5][1])
+##    print(mailDetails[0][1])
+##    print(mailDetails[1][1])
+##    print(mailDetails[2][1])
+##    print(mailDetails[3][1])
+##    print(mailDetails[4][1])
+##    print(mailDetails[5][1])
 
 
     smtpServer = mailDetails[0][1] #smtp.gmail.com:587

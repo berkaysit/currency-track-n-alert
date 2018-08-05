@@ -45,8 +45,12 @@ def getCurrencies(mode):
         UsdSatis = random.uniform(4.1, 5)
         ConstMoneyTL = baseCurr * baseMoney
         return
-        
-    r  = requests.get(url ,headers={"User-Agent":"Mozilla/5.0"})
+
+    try:
+        r  = requests.get(url ,headers={"User-Agent":"Mozilla/5.0"})
+    except ConnectionError:
+        print("Catched ConnectionError in the getCurrencies() method !!!")
+            
     data = r.text
     soup = BeautifulSoup(data, "html.parser")
     div = soup.find("div", id="pnlContent")
