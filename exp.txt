@@ -1,1 +1,2 @@
-hello
+import dovIncMail
+sendMail('a','2','3','4')
