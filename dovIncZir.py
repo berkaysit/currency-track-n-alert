@@ -45,7 +45,11 @@ def getCurrencies(mode):
         ConstMoneyTL = baseCurr * baseMoney
         return
         
-    r  = requests.get(url)
+    try:
+        r  = requests.get(url ,headers={"User-Agent":"Mozilla/5.0"})
+    except ConnectionError:
+        print("Catched ConnectionError in the getCurrencies() method !!!")
+
     page = r.text
     soup = BeautifulSoup(page, "html.parser")
     table = soup.find_all('table')[8] #.get_text()
