@@ -20,8 +20,8 @@ runMode = arguments[0] #test, test2, normal
 
 
 ## Programme Variables
-baseMoney = 250 #almak istediğim döviz miktarı
-baseCurr  = 4.800000
+baseMoney = 100 #almak istediğim döviz miktarı
+baseCurr  = 6.91
 diffMoneyTL = 0
 presentMoneyTL = 0.000000
 sentTime = datetime.datetime(2008, 11, 22, 19, 53, 42) #datetime.datetime.now()

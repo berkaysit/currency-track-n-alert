@@ -8,7 +8,7 @@ os.chdir("customIgnore")
 for row in csv.reader(open("pass.csv","rt", encoding='UTF-8')):       
         mailDetails.append(row)
 
-def sendMail(pBank, pDovSatis, pBaseMoney, pPresentMoneyTL):
+def sendMail(pBank, pCurrType, pDovSatis, pBaseMoney, pPresentMoneyTL):
 ##    print(mailDetails[0][1])
 ##    print(mailDetails[1][1])
 ##    print(mailDetails[2][1])
@@ -25,13 +25,13 @@ def sendMail(pBank, pDovSatis, pBaseMoney, pPresentMoneyTL):
     toEmail = mailDetails[5][1]
     
     title = pDovSatis
-    msg_content = '<h2>{title} * <font color="green">{pBaseMoney}$</font> = {pPresentMoneyTL}TL</h2>\n'.format(title=title,pBaseMoney=pBaseMoney,pPresentMoneyTL=pPresentMoneyTL)
+    msg_content = '<h2>{title} * <font color="green">{pBaseMoney} {pCurrType}</font> = {pPresentMoneyTL}TL</h2>\n'.format(title=title, pCurrType=pCurrType, pBaseMoney=pBaseMoney, pPresentMoneyTL=pPresentMoneyTL)
     message = MIMEText(msg_content, 'html')
 
     message['From'] = fromMail
     message['To'] = toMail
     ##message['Cc'] = 'Receiver2 Name <receiver2@server>'
-    message['Subject'] = 'DOLARA SALDIR: ' + str(pDovSatis) + " " + pBank
+    message['Subject'] = pCurrType + ' Alma Vakti: ' + str(pDovSatis) + " " + pBank
 
     msg_full = message.as_string()
 
