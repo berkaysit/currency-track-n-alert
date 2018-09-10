@@ -24,7 +24,7 @@ sendMailDuration = 120
 
 ## Programme Variables
 baseMoney = 250 #almak istediğim döviz miktarı
-if (len(arguments) == 4):
+if (len(arguments) >= 3):
 	baseCurr = float(arguments[2])
 else: 
 	baseCurr  = 4.950000
