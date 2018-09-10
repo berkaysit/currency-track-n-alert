@@ -150,14 +150,15 @@ try:
         currDateTime = datetime.datetime.now() ###strftime("%Y-%m-%d %H:%M:%S", gmtime())
         currDate = currDateTime.strftime('%Y-%m-%d')
         currTime = currDateTime.strftime('%H:%M:%S')
-        # Alert Control:
+        
+		#Alert Control:
         if (presentMoneyTL <= ConstMoneyTL - diffMoneyTL):
             #print("ALERT !!!")
             alertDec = True
         else:
             alertDec = False
 		   
-#Tarih,Saat,Alis,Satis,Ederi,Fark,DecAlert
+        #Tarih,Saat,Alis,Satis,Ederi,Fark,DecAlert
         outputText = currDate + "," + currTime + "," + str(round(currTypeAlis,6)) + "," +str(round(currTypeSatis,6)) + "," +  '"' + "{0:,.2f}".format(round(presentMoneyTL,2)) + '",' + str(round(diffTL,2)) + "," + str(alertDec) + "\n"
 
         ## Write to file:
@@ -184,8 +185,7 @@ except KeyboardInterrupt:
 finally:
         print("The End")
         try:
-                fUsd.close()
-                fEur.close()
+                f.close()
                 print("File is closed: " + fileName)
         except NameError:
                 print("File is already closed: " + fileName)
